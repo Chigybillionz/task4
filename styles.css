@@ -18,11 +18,16 @@ body {
     padding: 20px;
     background: #0b5ed7;
     color: white;
+    position: relative;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+.hamburger-check {
+    display: none;
 }
 
 .navbar {
@@ -44,7 +49,14 @@ body {
     display: none;
     font-size: 28px;
     cursor: pointer;
+    color: white;
+    z-index: 100;
 }
+
+.hamburger:hover {
+    color: #ffda79;
+}
+
 /* ABOUT SECTION */
 .about {
     padding: 60px 20px;
@@ -59,10 +71,11 @@ body {
 }
 
 .about-content img {
-    border-radius: 10px;
-    max-width: 100%;
-    height: auto;
-    /* fluid image */
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* PROJECT SECTION */
@@ -116,6 +129,7 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .contact button {
@@ -148,6 +162,7 @@ body {
     color: #ffda79;
     margin: 0 10px;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .footer .socials a:hover {
@@ -156,6 +171,10 @@ body {
 
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
     .navbar {
         display: none;
         flex-direction: column;
@@ -165,15 +184,12 @@ body {
         right: 0;
         width: 200px;
         text-align: right;
-        padding: 10px;
+        padding: 15px;
+        gap: 15px;
     }
 
-    .navbar.active {
+    .hamburger-check:checked~.navbar {
         display: flex;
-    }
-
-    .hamburger {
-        display: block;
     }
 
     .project-grid {
